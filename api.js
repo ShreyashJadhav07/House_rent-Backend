@@ -28,6 +28,6 @@ const AuthRouter=require("./Routers/AuthRouter");
 app.use("/api/auth",AuthRouter);
 
 
-app.listen(3000,function(){
-    console.log("server running on port 3000");
+app.listen(3010,function(){
+    console.log("server running on port 3010");
 })
