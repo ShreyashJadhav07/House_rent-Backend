@@ -2,6 +2,8 @@ const express=require("express");
 const app=express();
 const mongoose=require("mongoose");
 const dotenv=require('dotenv');
+const cookieParser=require('cookie-parser');
+const cors=require('cors');
 
 dotenv.config();
 const dbLink = `mongodb+srv://${process.env.DB_USERNAME}
@@ -12,8 +14,18 @@ mongoose.connect(dbLink)
         console.log("connected to db")
 }).catch(err => console.log(err))
 
+app.use(cookieParser());
+app.use(express.json());
+
+app.use(cors({
+ origin: true,
+ credentials: true
+}));
+
+const AuthRouter=require("./Routers/AuthRouter");
 
 
+app.use("/api/auth",AuthRouter);
 
 
 app.listen(3000,function(){
