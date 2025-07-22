@@ -23,9 +23,11 @@ app.use(cors({
 }));
 
 const AuthRouter=require("./Routers/AuthRouter");
+const userRouter = require("./Routers/UserRouter");
 
 
 app.use("/api/auth",AuthRouter);
+app.use("/api/user",userRouter);
 
 
 app.listen(3010,function(){

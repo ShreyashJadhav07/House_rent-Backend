@@ -1,4 +1,12 @@
 const mongoose = require('mongoose');
+const wishlistSchema = new mongoose.Schema({
+  id: Number,
+  title: String,
+  location: String,
+  price: Number,
+  bedrooms: Number,
+  image: String, 
+});
 
 
 
@@ -19,15 +27,15 @@ const schemaRules = {
         required: [true,"password is required"],
         minLength: [6,"password must be at least 6 characters long"],
     },
-    confirmPassword :{
+    confirmPassword: {
         type: String,
-        required: [true,"confirm password is required"],
-        minLength: [6,"confirm password must be at least 6 characters long and must match password"],
-
-        validate :[function() {
-            return this.password === this.confirmPassword;
-
-        } ,"confirm password must match password"]
+        required: function() {
+            return this.isNew; // Only required when creating new user
+        },
+        minLength: [6, "confirm password must be at least 6 characters long and must match password"],
+        validate: [function() {
+            return !this.confirmPassword || this.password === this.confirmPassword;
+        }, "confirm password must match password"]
     },
 
       role: {
@@ -56,6 +64,7 @@ const schemaRules = {
         type: Date,
 
     },
+    wishlist: [wishlistSchema],
  
 
 }
