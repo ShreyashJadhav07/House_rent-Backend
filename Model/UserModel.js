@@ -40,7 +40,7 @@ const schemaRules = {
 
       role: {
         type: String,
-        enum: ['renter', 'owner','admin'],
+        enum: ['renter', 'owner','broker'],
         default: 'renter'
         
     },
@@ -63,6 +63,10 @@ const schemaRules = {
     otpExpiry:{
         type: Date,
 
+    },
+    isPremium: {
+        type: Boolean,
+        default: false
     },
     wishlist: [wishlistSchema],
  

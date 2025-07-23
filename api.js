@@ -24,11 +24,17 @@ app.use(cors({
 
 const AuthRouter=require("./Routers/AuthRouter");
 const userRouter = require("./Routers/UserRouter");
+const router = require("./Routers/AppointmentRouter");
+const notiRouter = require("./Routers/notificationRouter");
+const PaymentRouter = require("./Routers/PaymentRouter");
+
 
 
 app.use("/api/auth",AuthRouter);
 app.use("/api/user",userRouter);
-
+app.use("/api/appointment",router);
+app.use("/api/notifications",notiRouter);
+app.use("/api/payment",PaymentRouter);
 
 app.listen(3010,function(){
     console.log("server running on port 3010");
