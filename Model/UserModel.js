@@ -52,11 +52,7 @@ const schemaRules = {
     type: Date,
     default: Date.now,
     },
-
-   
- 
-  
-       otp: {
+   otp: {
         type: String,
     },
 
