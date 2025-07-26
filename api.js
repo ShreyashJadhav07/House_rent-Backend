@@ -36,6 +36,11 @@ app.use("/api/appointment",router);
 app.use("/api/notifications",notiRouter);
 app.use("/api/payment",PaymentRouter);
 
-app.listen(3010,function(){
-    console.log("server running on port 3010");
-})
+const PORT = process.env.PORT || 3010;
+
+// app.listen(3010,function(){
+//     console.log("server running on port 3010");
+// })
+app.listen(PORT, function(){
+    console.log(`Server is running on port ${PORT}`);
+});
