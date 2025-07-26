@@ -1,24 +1,3 @@
-// const mongoose=require('mongoose');
-
-// const appointmentSchema = new mongoose.Schema({
-  
-//   fullName: String,
-//   email: String,
-//   phone: String,
-//   propertyId: String,
-//   image: String,
-//   brokerName: String,
-//   brokerLocation: String,
-//   propertyTitle: String,
-//   price: Number,
-//   guest: Number,
-//   bedrooms: Number,
-// })
-
-// const Appointment=mongoose.model('Appointment', appointmentSchema);
-// module.exports = Appointment;
-
-
 const mongoose = require('mongoose');
 
 const appointmentSchema = new mongoose.Schema({

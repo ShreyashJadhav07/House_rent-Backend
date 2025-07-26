@@ -30,7 +30,7 @@ const schemaRules = {
     confirmPassword: {
         type: String,
         required: function() {
-            return this.isNew; // Only required when creating new user
+            return this.isNew; 
         },
         minLength: [6, "confirm password must be at least 6 characters long and must match password"],
         validate: [function() {

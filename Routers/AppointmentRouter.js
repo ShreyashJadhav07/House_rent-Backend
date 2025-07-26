@@ -5,7 +5,7 @@ const router= express.Router();
 
 router.post("/book", protectRouteMiddleware, bookAppointment);
 
-// 🔓 Public route for confirming (via email link)
+
 router.get("/confirm", confirmAppointment);
 
 module.exports = router;
