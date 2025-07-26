@@ -93,7 +93,7 @@ async function loginHandler(req,res) {
 }
 
 const logoutController =function (req,res){
-    console.log("logout Handleer is called");
+   
     res.cookie("jwt" , "", {
         maxAge:0,
         httpOnly:true,
@@ -213,7 +213,7 @@ async function resetPasswordHandler(req, res) {
 async function protectRouteMiddleware(req, res, next) {
     try {
         const token = req.cookies.jwt;
-        console.log('Token from cookies:', token);
+  
         
         if (!token) {
             return res.status(401).json({
@@ -223,10 +223,10 @@ async function protectRouteMiddleware(req, res, next) {
         }
         
         const decryptedToken = await promisifiedJWTverify(token, JWT_SECRET_KEY);
-        console.log('Decrypted token:', decryptedToken);
+      
         
         req.userId = decryptedToken.id;
-        console.log('Set req.userId to:', req.userId);
+        
         next();
     } catch (err) {
         console.error("Error in protectRouteMiddleware:", err);

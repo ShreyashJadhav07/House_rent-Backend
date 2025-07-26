@@ -8,7 +8,7 @@ const Notification=require("../Model/Notification");
 const UserModel = require('../Model/UserModel');
 
 async function bookAppointment(req, res) {
-  console.log("Incoming payload:", req.body);
+ 
 
   try {
     const userId = req.userId;
