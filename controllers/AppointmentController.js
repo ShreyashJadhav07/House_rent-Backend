@@ -58,7 +58,8 @@ async function bookAppointment(req, res) {
     });
 
     const brokerEmailPath = path.join(__dirname, '..', 'templates', 'appointmentBrokerConfirm.html');
-    const confirmLink = `http://localhost:3010/api/appointment/confirm?token=${confirmationToken}`;
+    const confirmLink = `https://house-rent-backend-hqpk.onrender.com/api/appointment/confirm?token=${confirmationToken}`;
+
 
     await emailSender(brokerEmailPath, broker.email, {
       userName: broker.name || broker.email,
